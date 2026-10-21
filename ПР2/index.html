@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Кофейный дневник: блог о видах кофе, способах заварить его дома и кофейных дегустациях.">
+    <title>Семантическая верстка - Кофейный дневник</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.6;
+            color: #3b2a20;
+            background-color: #faf6f1;
+        }
+
+        body > header,
+        body > footer {
+            padding: 1.5rem 1rem;
+            text-align: center;
+            color: #f5e9dc;
+            background-color: #4b2e1e;
+        }
+
+        body > header p {
+            margin: 0;
+            font-style: normal;
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 1.5rem;
+            margin: 0;
+            padding: 0.8rem;
+            list-style: none;
+            background-color: #6f4a33;
+        }
+
+        nav a,
+        body > footer a {
+            color: #f5e9dc;
+            text-decoration: none;
+        }
+
+        nav a:hover,
+        body > footer a:hover {
+            text-decoration: underline;
+        }
+
+        body > footer nav a {
+            margin: 0 0.6rem;
+        }
+
+        .layout {
+            display: flex;
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+        }
+
+        main {
+            flex: 1;
+            min-width: 0;
+        }
+
+        main > article,
+        main > section {
+            margin-bottom: 1.5rem;
+            padding: 1.2rem 1.5rem;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(75, 46, 30, 0.15);
+        }
+
+        article > header {
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e6d5c3;
+        }
+
+        article > header h2 {
+            margin: 0;
+        }
+
+        article > footer {
+            margin-top: 1rem;
+            padding-top: 0.6rem;
+            font-size: 0.9rem;
+            border-top: 1px solid #e6d5c3;
+        }
+
+        h2, h3 {
+            color: #4b2e1e;
+        }
+
+        figure {
+            margin: 1rem 0;
+        }
+
+        figure img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        figcaption {
+            margin-top: 0.4rem;
+            font-size: 0.9rem;
+            color: #7a6455;
+        }
+
+        details {
+            padding: 0.8rem 1rem;
+            background-color: #f5ece2;
+            border-radius: 6px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        aside {
+            flex: 0 0 240px;
+            align-self: flex-start;
+            padding: 1rem 1.2rem;
+            background-color: #efe2d3;
+            border-radius: 8px;
+        }
+
+        aside a {
+            color: #6f4a33;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        caption {
+            margin-bottom: 0.5rem;
+            text-align: left;
+            color: #7a6455;
+        }
+
+        th, td {
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+            border: 1px solid #e0cdb9;
+        }
+
+        thead th {
+            color: #f5e9dc;
+            background-color: #6f4a33;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #faf3ea;
+        }
+
+        form input[type="text"],
+        form input[type="email"] {
+            width: 100%;
+            max-width: 360px;
+            padding: 0.5rem;
+            border: 1px solid #c9b29b;
+            border-radius: 4px;
+        }
+
+        form button {
+            padding: 0.6rem 1.4rem;
+            color: #f5e9dc;
+            background-color: #6f4a33;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #4b2e1e;
+        }
+
+        @media (max-width: 700px) {
+            .layout {
+                flex-direction: column;
+            }
+
+            aside {
+                flex: none;
+                align-self: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="top">
+        <h1>Кофейный дневник</h1>
+        <p>Всё о зёрнах, способах заварить и маленьких радостях первой чашки</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#beans">Зёрна</a></li>
+            <li><a href="#brewing">Заваривание</a></li>
+            <li><a href="#schedule">Дегустации</a></li>
+            <li><a href="#about">О блоге</a></li>
+            <li><a href="#contact">Подписка</a></li>
+        </ul>
+    </nav>
+
+    <div class="layout">
+        <main itemscope itemtype="https://schema.org/Blog">
+            <article id="beans" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+                <header>
+                    <h2 itemprop="headline">Арабика и робуста: в чём разница</h2>
+                    <time itemprop="datePublished" datetime="2026-10-12">12 октября 2026</time>
+                </header>
+
+                <p itemprop="description">Почти весь кофе в мире делают из зёрен двух видов. Они заметно отличаются и по вкусу, и по крепости, и даже по тому, где растут.</p>
+
+                <section id="arabica">
+                    <h3>Арабика: мягкая и ароматная</h3>
+                    <p>Арабика растёт высоко в горах и любит прохладу. Вкус у неё сложный, с лёгкой кислинкой и нотами фруктов или шоколада. Примерно 60 процентов кофе в мире это именно арабика.</p>
+                    <figure>
+                        <img itemprop="image" src="https://commons.wikimedia.org/wiki/Special:FilePath/Roasted_coffee_beans.jpg?width=600" alt="Обжаренные кофейные зёрна крупным планом" width="600" height="450">
+                        <figcaption>Обжаренные зёрна: чем темнее обжарка, тем меньше в кофе кислинки</figcaption>
+                    </figure>
+                </section>
+
+                <section id="robusta">
+                    <h3>Робуста: крепкая и бодрящая</h3>
+                    <p>Робуста неприхотлива и хорошо переносит болезни растений. Кофеина в ней примерно в два раза больше, чем в арабике, а вкус более резкий и горьковатый. Её часто добавляют в смеси для эспрессо, чтобы получилась плотная пенка.</p>
+                </section>
+
+                <footer itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <p>Автор: <span itemprop="name">Губайдуллина Рания</span></p>
+                    <address>Email: <a itemprop="email" href="mailto:raniya24092008@gmail.com">raniya24092008@gmail.com</a></address>
+                </footer>
+            </article>
+
+            <article id="brewing" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+                <header>
+                    <h2 itemprop="headline">Три способа заварить кофе без кофемашины</h2>
+                    <time itemprop="datePublished" datetime="2026-10-18">18 октября 2026</time>
+                </header>
+
+                <p itemprop="description">Чтобы выпить вкусный кофе дома, дорогая техника не нужна. Хватит турки, френч-пресса или обычной воронки с фильтром.</p>
+
+                <section id="turka">
+                    <h3>Турка: классика</h3>
+                    <p>В турке кофе варят на медленном огне. Главное не дать ему закипеть, иначе напиток станет горьким. Получается густой кофе с насыщенным вкусом.</p>
+                    <figure>
+                        <img itemprop="image" src="https://commons.wikimedia.org/wiki/Special:FilePath/A_small_cup_of_coffee.JPG?width=600" alt="Чашка свежесваренного чёрного кофе" width="600" height="450">
+                        <figcaption>Чашка свежесваренного кофе: аромат чувствуется ещё до первого глотка</figcaption>
+                    </figure>
+                </section>
+
+                <section id="french-press">
+                    <h3>Френч-пресс: проще некуда</h3>
+                    <p>Молотый кофе заливают горячей водой, ждут четыре минуты и опускают поршень. Вкус получается мягким и цельным, а делать почти ничего не нужно.</p>
+                </section>
+
+                <section id="pourover">
+                    <h3>Воронка: чистый вкус</h3>
+                    <p>Вода медленно проходит через бумажный фильтр с кофе. Такой способ показывает все оттенки вкуса, поэтому его любят для светлой обжарки.</p>
+                </section>
+
+                <details id="turka-recipe">
+                    <summary>Пошаговый рецепт кофе в турке</summary>
+                    <ol>
+                        <li>Налейте в турку холодную воду, примерно 100 мл на порцию.</li>
+                        <li>Добавьте одну-две чайные ложки молотого кофе, не перемешивайте.</li>
+                        <li>Нагревайте на слабом огне, пока не начнёт подниматься пенка.</li>
+                        <li>Снимите турку с огня, подождите минуту и разлейте по чашкам.</li>
+                    </ol>
+                </details>
+
+                <footer itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <p>Автор: <span itemprop="name">Губайдуллина Рания</span></p>
+                    <address>Email: <a itemprop="email" href="mailto:raniya24092008@gmail.com">raniya24092008@gmail.com</a></address>
+                </footer>
+            </article>
+
+            <section id="schedule">
+                <h2>Расписание кофейных дегустаций</h2>
+                <div class="table-wrap">
+                    <table>
+                        <caption>Ближайшие встречи в конце октября и ноябре 2026 года</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Дата и время</th>
+                                <th scope="col">Тема</th>
+                                <th scope="col">Длительность</th>
+                                <th scope="col">Зал</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr itemscope itemtype="https://schema.org/Event">
+                                <td><time itemprop="startDate" datetime="2026-10-31T11:00">31 октября, 11:00</time></td>
+                                <td itemprop="name">Знакомство с арабикой</td>
+                                <td><time itemprop="duration" datetime="PT90M">90 минут</time></td>
+                                <td itemprop="location">Зал 1</td>
+                            </tr>
+                            <tr itemscope itemtype="https://schema.org/Event">
+                                <td><time itemprop="startDate" datetime="2026-11-07T11:00">7 ноября, 11:00</time></td>
+                                <td itemprop="name">Робуста и эспрессо</td>
+                                <td><time itemprop="duration" datetime="PT60M">60 минут</time></td>
+                                <td itemprop="location">Зал 2</td>
+                            </tr>
+                            <tr itemscope itemtype="https://schema.org/Event">
+                                <td><time itemprop="startDate" datetime="2026-11-14T12:00">14 ноября, 12:00</time></td>
+                                <td itemprop="name">Кофе в турке и френч-прессе</td>
+                                <td><time itemprop="duration" datetime="PT90M">90 минут</time></td>
+                                <td itemprop="location">Зал 1</td>
+                            </tr>
+                            <tr itemscope itemtype="https://schema.org/Event">
+                                <td><time itemprop="startDate" datetime="2026-11-21T12:00">21 ноября, 12:00</time></td>
+                                <td itemprop="name">Латте-арт для начинающих</td>
+                                <td><time itemprop="duration" datetime="PT120M">120 минут</time></td>
+                                <td itemprop="location">Зал 3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="about">
+                <h2>О нашем блоге</h2>
+                <p>Мы рассказываем о кофе простым языком: какие бывают зёрна, как их выбрать и как приготовить хороший напиток дома. Блог ведёт начинающий кофеман, который сам учится на каждой чашке.</p>
+            </section>
+
+            <section id="contact">
+                <h2>Подписка на рассылку</h2>
+                <p>Оставьте почту, и мы будем присылать новые статьи и рецепты.</p>
+                <form action="#" method="post">
+                    <p>
+                        <label for="name">Ваше имя</label><br>
+                        <input type="text" id="name" name="name" placeholder="Например, Анна" required>
+                    </p>
+                    <p>
+                        <label for="email">Email</label><br>
+                        <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="weekly" name="weekly" checked>
+                        <label for="weekly">Получать подборку рецептов раз в неделю</label>
+                    </p>
+                    <p><button type="submit">Подписаться</button></p>
+                </form>
+            </section>
+        </main>
+
+        <aside>
+            <h2>Быстрые ссылки</h2>
+            <ul>
+                <li><a href="#arabica">Что такое арабика</a></li>
+                <li><a href="#robusta">Что такое робуста</a></li>
+                <li><a href="#turka-recipe">Рецепт кофе в турке</a></li>
+            </ul>
+            <h3>Совет дня</h3>
+            <p>Не заливайте кофе кипятком. Лучше всего подходит вода около 92-96 градусов.</p>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Кофейный дневник. Все права защищены.</p>
+        <nav>
+            <a href="#top">Наверх</a> |
+            <a href="#about">О блоге</a> |
+            <a href="#contact">Подписка</a>
+        </nav>
+    </footer>
+</body>
+</html>
