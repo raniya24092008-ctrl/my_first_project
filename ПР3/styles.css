@@ -1,0 +1,282 @@
+/* ===== Часть 6: CSS-переменные (custom properties) ===== */
+:root {
+    --color-text: #263238;
+    --color-title: #0b3c5d;
+    --color-accent: #0b7285;
+    --color-soft: #e8f1f5;
+    --color-line: #b8c7cf;
+    --color-star: #f59f00;
+    --radius: 10px;
+    --space: 22px;
+}
+
+/* ===== Задача 2.1: базовые селекторы (и задача 4.1: наследуемые свойства) ===== */
+/* Селектор по тегу */
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: #f6f8fa;
+}
+
+h1 {
+    color: var(--color-title);
+}
+
+/* Селектор по классу */
+.main-header {
+    background-color: var(--color-soft);
+    padding: 24px;
+    border-bottom: 3px solid var(--color-accent);
+    transition: background-color 0.3s;
+}
+
+.subtitle {
+    font-style: italic;
+    color: #607d8b;
+    text-align: center;
+}
+
+/* Селектор по ID */
+#site-title {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+/* Расположение контента по центру страницы */
+.content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ===== Задача 2.2: комбинированные селекторы ===== */
+/* Дочерний селектор */
+.content > article {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 14px 0;
+    border-radius: var(--radius);
+    box-shadow: 0 1px 4px rgba(11, 60, 93, 0.15);
+}
+
+/* Селектор потомков */
+.post p {
+    margin-bottom: 12px;
+}
+
+/* Соседний селектор */
+h2 + p {
+    font-weight: 600;
+    font-size: 1.05em;
+}
+
+/* Селектор атрибута */
+li[class="important"] {
+    letter-spacing: 0.4px;
+}
+
+/* Карточка (будет дополнена в задаче 4.1) */
+.card {
+    position: relative;
+    border: 1px solid var(--color-line);
+    padding: 16px;
+    border-radius: var(--radius);
+    background-color: #ffffff;
+}
+
+.card ul {
+    list-style: none;
+}
+
+.card li {
+    padding: 6px 10px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+}
+
+/* ===== Задача 3.1: каскад ===== */
+/* Базовый стиль для всех абзацев */
+p {
+    color: #2b2b2b;
+    font-size: 16px;
+}
+
+/* Более специфичный селектор */
+.post p {
+    color: #1f6f4a;
+}
+
+/* Ещё более специфичный */
+.featured-post p {
+    color: #a33b2f;
+}
+
+/* Самый специфичный */
+.featured-post .intro {
+    color: #6a3fb5;
+    font-size: 19px;
+}
+
+/* ===== Задача 3.2: специфичность ===== */
+/* Специфичность 0,1,0 */
+.important {
+    color: #d6336c;
+    font-weight: bold;
+}
+
+/* Специфичность 0,1,1 */
+li.important {
+    color: #b02a37;
+    text-decoration: underline;
+}
+
+/* Специфичность 0,0,2 */
+ul li {
+    color: #2563a8;
+}
+
+/* !important переопределяет всё остальное */
+.important {
+    color: #e8590c !important;
+}
+
+/* ===== Задача 4.1: наследование ===== */
+/* Это правило идёт после .card из задачи 2.2, поэтому border и padding переопределяются */
+.card {
+    border: 2px solid var(--color-accent);
+    padding: inherit; /* берёт padding родителя .examples */
+}
+
+.examples {
+    margin: 14px 0;
+    padding: var(--space);
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/* ===== Задача 4.2: псевдоклассы и псевдоэлементы ===== */
+/* nth-child стоит раньше hover: при одинаковой специфичности побеждает более позднее правило */
+li:nth-child(odd) {
+    background-color: #f1f3f5;
+}
+
+li:hover {
+    background-color: #ffe066;
+    cursor: pointer;
+}
+
+.main-header:hover {
+    background-color: #d3e6ee;
+}
+
+/* Псевдоэлементы */
+p::first-line {
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.post h2::after {
+    content: " \2726";        /* символ звезды */
+    color: var(--color-star);
+    display: inline-block;
+    animation: twinkle 1.8s ease-in-out infinite;
+}
+
+.card::before {
+    content: "\25B8";         /* стрелка */
+    color: #2f9e44;
+    position: absolute;
+    top: 14px;
+    left: 8px;
+}
+
+/* ===== Часть 6: currentColor ===== */
+/* Цвет линии под заголовком берётся из color заголовка */
+.card h3 {
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    color: var(--color-accent);
+    border-bottom: 2px solid currentColor;
+}
+
+/* Кружок в футере закрашивается цветом текста футера */
+.main-footer {
+    margin-top: 24px;
+    padding: 18px;
+    text-align: center;
+    background-color: var(--color-title);
+}
+
+.main-footer p {
+    color: #cfe8ef;
+}
+
+.main-footer p::before {
+    content: "";
+    display: inline-block;
+    width: 0.7em;
+    height: 0.7em;
+    margin-right: 0.5em;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+/* ===== Часть 6: анимации @keyframes ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.35);
+    }
+}
+
+.content > article,
+.examples {
+    animation: fadeInUp 0.7s ease-out both;
+}
+
+/* ===== Часть 6: медиа-запросы ===== */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 16px;
+    }
+
+    #site-title {
+        font-size: 1.6rem;
+    }
+
+    .content {
+        padding: 0 12px;
+    }
+
+    .content > article {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-post .intro {
+        font-size: 17px;
+    }
+
+    .card li {
+        padding: 8px 10px;
+    }
+
+    .main-footer {
+        font-size: 14px;
+    }
+}
