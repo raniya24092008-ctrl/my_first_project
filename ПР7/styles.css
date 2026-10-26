@@ -1,0 +1,388 @@
+:root {
+    --color-text: #1e293b;
+    --color-muted: #64748b;
+    --color-border: #cbd5e1;
+    --color-primary: #4f46e5;
+    --color-primary-dark: #4338ca;
+    --color-error: #dc2626;
+    --color-error-bg: #fef2f2;
+    --color-success: #16a34a;
+    --radius: 8px;
+}
+
+/* ===== Задача 3.1: контейнер и шапка ===== */
+.container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.header h1 {
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+}
+
+.header p {
+    color: var(--color-muted);
+}
+
+.footer {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}
+
+/* ===== Задача 3.1: форма и секции ===== */
+.registration-form {
+    padding: 2rem;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 2px 12px rgba(30, 41, 59, 0.1);
+}
+
+.form-section {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius);
+    background: #f8fafc;
+}
+
+.form-section legend {
+    padding: 0 0.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* ===== Группы полей и подписи ===== */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group label,
+.group-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.form-group label.required::after {
+    content: " *";
+    color: var(--color-error);
+}
+
+/* ===== Поля ввода ===== */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e2e8f0;
+    border-radius: var(--radius);
+    background: white;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* Состояния валидности средствами CSS (псевдоклассы :valid и :invalid).
+   :not(:placeholder-shown) нужен, чтобы пустое поле не краснело и не зеленело раньше времени */
+.form-group input:invalid:not(:focus):not(:placeholder-shown) {
+    border-color: var(--color-error);
+}
+
+.form-group input:valid:not(:focus):not(:placeholder-shown) {
+    border-color: var(--color-success);
+}
+
+/* У поля даты нет placeholder, поэтому его зелёным не подсвечиваем */
+.form-group input[type="date"]:valid:not(:focus) {
+    border-color: #e2e8f0;
+}
+
+/* ===== Сообщения об ошибках ===== */
+.error-message {
+    display: block;
+    min-height: 1.25rem;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--color-error);
+}
+
+/* ===== Группы radio и checkbox ===== */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Селектор .form-group .radio-label нужен, чтобы перебить общее правило .form-group label (display: block) */
+.form-group .radio-label,
+.form-group .checkbox-label {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* Настоящий input прячем визуально, но он остаётся в фокусе и виден скринридеру */
+.form-group .radio-label input,
+.form-group .checkbox-label input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    opacity: 0;
+}
+
+/* Кастомные radio и checkbox */
+.radio-custom,
+.checkbox-custom {
+    position: relative;
+    flex-shrink: 0;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-top: 0.2rem;
+    border: 2px solid #94a3b8;
+    border-radius: 50%;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.checkbox-custom {
+    border-radius: 4px;
+}
+
+.radio-label input:checked + .radio-custom {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+}
+
+.radio-label input:checked + .radio-custom::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    transform: translate(-50%, -50%);
+}
+
+.checkbox-label input:checked + .checkbox-custom {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+}
+
+.checkbox-label input:checked + .checkbox-custom::after {
+    content: "\2713";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 14px;
+    color: white;
+    transform: translate(-50%, -50%);
+}
+
+/* Фокус с клавиатуры виден на кастомном элементе */
+.radio-label input:focus-visible + .radio-custom,
+.checkbox-label input:focus-visible + .checkbox-custom {
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+}
+
+/* ===== Кнопки ===== */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #94a3b8;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #64748b;
+}
+
+.btn:focus-visible {
+    outline: 3px solid rgba(79, 70, 229, 0.4);
+    outline-offset: 2px;
+}
+
+/* ===== Дополнительные элементы ===== */
+.password-requirements {
+    margin-top: 0.5rem;
+    list-style: none;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+}
+
+.password-requirements li::before {
+    content: "\2717\00a0";   /* крестик, пока условие не выполнено */
+}
+
+.password-requirements li.met {
+    color: var(--color-success);
+}
+
+.password-requirements li.met::before {
+    content: "\2713\00a0";   /* галочка, когда условие выполнено */
+}
+
+.char-counter {
+    margin-top: 0.25rem;
+    text-align: right;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+}
+
+.char-counter.limit {
+    color: var(--color-error);
+}
+
+/* Сообщение о результате отправки */
+.form-status {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    text-align: center;
+    font-weight: 500;
+}
+
+.form-status:empty {
+    display: none;
+}
+
+.form-status.success {
+    border: 1px solid var(--color-success);
+    background: #f0fdf4;
+    color: #166534;
+}
+
+.form-status.error {
+    border: 1px solid var(--color-error);
+    background: var(--color-error-bg);
+    color: #991b1b;
+}
+
+/* ===== Задача 4.2: стили для состояния ошибки (класс .error ставит JavaScript) ===== */
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+    border-color: var(--color-error);
+    background-color: var(--color-error-bg);
+}
+
+.form-group input.error:focus,
+.form-group select.error:focus,
+.form-group textarea.error:focus {
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+/* Если браузер считает поле валидным, а JS нашёл ошибку (например, пароли не совпадают),
+   правило :valid выше было бы сильнее, поэтому усиливаем .error */
+.form-group input.error:valid:not(:focus),
+.form-group input.error:invalid:not(:focus) {
+    border-color: var(--color-error);
+}
+
+/* Ошибка у кастомного чекбокса соглашения */
+.checkbox-label input.error + .checkbox-custom {
+    border-color: var(--color-error);
+    animation: shake 0.3s ease-in-out;
+}
+
+/* ===== Анимации ===== */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25%      { transform: translateX(-5px); }
+    75%      { transform: translateX(5px); }
+}
+
+.form-group input.error {
+    animation: shake 0.3s ease-in-out;
+}
+
+/* ===== Задача 4.2: адаптивность ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .registration-form {
+        padding: 1rem;
+    }
+
+    .form-section {
+        padding: 1rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .radio-group,
+    .checkbox-group {
+        gap: 0.5rem;
+    }
+}

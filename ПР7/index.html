@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вёрстка и валидация форм</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 id="formTitle">Регистрация пользователя</h1>
+            <p>Заполните форму ниже для создания аккаунта</p>
+        </header>
+
+        <main class="main">
+            <form class="registration-form" id="registrationForm" aria-labelledby="formTitle" novalidate>
+                <!-- Личная информация -->
+                <fieldset class="form-section">
+                    <legend>Личная информация</legend>
+
+                    <div class="form-group">
+                        <label for="firstName" class="required">Имя</label>
+                        <input type="text" id="firstName" name="firstName" required
+                               minlength="2" maxlength="50" autocomplete="given-name"
+                               placeholder="Введите ваше имя"
+                               aria-describedby="firstNameError">
+                        <span class="error-message" id="firstNameError" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName" class="required">Фамилия</label>
+                        <input type="text" id="lastName" name="lastName" required
+                               minlength="2" maxlength="50" autocomplete="family-name"
+                               placeholder="Введите вашу фамилию"
+                               aria-describedby="lastNameError">
+                        <span class="error-message" id="lastNameError" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="required">Email</label>
+                        <input type="email" id="email" name="email" required
+                               autocomplete="email"
+                               placeholder="example@mail.com"
+                               aria-describedby="emailError">
+                        <span class="error-message" id="emailError" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel"
+                               pattern="[\+]\d{1,3}\s?\(\d{1,5}\)\s?\d{1,3}[\-]\d{2}[\-]\d{2}"
+                               placeholder="+7 (999) 999-99-99"
+                               aria-describedby="phoneError">
+                        <span class="error-message" id="phoneError" aria-live="polite"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Безопасность -->
+                <fieldset class="form-section">
+                    <legend>Безопасность</legend>
+
+                    <div class="form-group">
+                        <label for="password" class="required">Пароль</label>
+                        <input type="password" id="password" name="password" required
+                               minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$"
+                               autocomplete="new-password"
+                               placeholder="Не менее 8 символов"
+                               aria-describedby="passwordRequirements passwordError">
+                        <span class="error-message" id="passwordError" aria-live="polite"></span>
+                        <ul class="password-requirements" id="passwordRequirements">
+                            <li data-rule="length">Не менее 8 символов</li>
+                            <li data-rule="case">Заглавные и строчные латинские буквы</li>
+                            <li data-rule="digit">Хотя бы одна цифра</li>
+                        </ul>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword" class="required">Подтверждение пароля</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required
+                               autocomplete="new-password"
+                               placeholder="Повторите пароль"
+                               aria-describedby="confirmPasswordError">
+                        <span class="error-message" id="confirmPasswordError" aria-live="polite"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Дополнительная информация -->
+                <fieldset class="form-section">
+                    <legend>Дополнительная информация</legend>
+
+                    <div class="form-group">
+                        <label for="birthDate">Дата рождения</label>
+                        <input type="date" id="birthDate" name="birthDate" autocomplete="bday"
+                               min="1900-01-01" max="2026-12-31"
+                               aria-describedby="birthDateError">
+                        <span class="error-message" id="birthDateError" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">Страна</label>
+                        <select id="country" name="country" autocomplete="country">
+                            <option value="">Выберите страну</option>
+                            <option value="ru">Россия</option>
+                            <option value="kz">Казахстан</option>
+                            <option value="by">Беларусь</option>
+                            <option value="other">Другая</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="group-label" id="genderLabel">Пол</span>
+                        <div class="radio-group" role="radiogroup" aria-labelledby="genderLabel">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="male">
+                                <span class="radio-custom"></span>
+                                Мужской
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="female">
+                                <span class="radio-custom"></span>
+                                Женский
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="other">
+                                <span class="radio-custom"></span>
+                                Другой
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="group-label" id="interestsLabel">Интересы</span>
+                        <div class="checkbox-group" role="group" aria-labelledby="interestsLabel">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="interests" value="programming">
+                                <span class="checkbox-custom"></span>
+                                Программирование
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="interests" value="design">
+                                <span class="checkbox-custom"></span>
+                                Дизайн
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="interests" value="marketing">
+                                <span class="checkbox-custom"></span>
+                                Маркетинг
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio">О себе</label>
+                        <textarea id="bio" name="bio" rows="4"
+                                  placeholder="Расскажите немного о себе..."
+                                  maxlength="500"></textarea>
+                        <div class="char-counter">
+                            <span id="charCount">0</span>/500 символов
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Соглашения и кнопки -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms" name="terms" required
+                                   aria-describedby="termsError">
+                            <span class="checkbox-custom"></span>
+                            <span>Я принимаю <a href="#">условия использования</a> и <a href="#">политику конфиденциальности</a></span>
+                        </label>
+                        <span class="error-message" id="termsError" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <span class="checkbox-custom"></span>
+                            Я хочу получать новостную рассылку
+                        </label>
+                    </div>
+
+                    <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                        <button type="reset" class="btn btn-secondary">Очистить форму</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 Формы и валидация</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
