@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aurora Studio: проектируем и разрабатываем цифровые продукты для бизнеса.">
+    <title>Верстка по макету | Aurora Studio</title>
+    <link rel="icon" href="images/my-logo.png" type="image/png">
+
+    <!-- Шрифты Google Fonts: Manrope для заголовков, Inter для текста -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap">
+
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="#home" class="logo">
+                <img src="images/my-logo.png" alt="" class="logo-img" width="40" height="40">
+                <span class="logo-text">Aurora Studio</span>
+            </a>
+
+            <nav class="nav" aria-label="Главное меню">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link">Главная</a></li>
+                    <li><a href="#services" class="nav-link">Преимущества</a></li>
+                    <li><a href="#contact" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <a href="#contact" class="cta-button">Связаться</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Создаём цифровые продукты, которыми приятно пользоваться</h1>
+                    <p class="hero-description">
+                        Проектируем и разрабатываем сайты и сервисы для бизнеса:
+                        от идеи и дизайна до запуска и поддержки.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">Начать проект</a>
+                        <a href="#services" class="btn btn-secondary">Узнать больше</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="images/hero.svg" alt="Иллюстрация: панель аналитики цифрового продукта" class="hero-image" width="600" height="400">
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="services" aria-labelledby="features-title">
+            <div class="container">
+                <h2 class="section-title" id="features-title">Почему выбирают нас</h2>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🚀</div>
+                        <h3 class="feature-title">Скорость</h3>
+                        <p class="feature-description">
+                            Первый рабочий прототип показываем уже через две недели
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">💎</div>
+                        <h3 class="feature-title">Качество</h3>
+                        <p class="feature-description">
+                            Аккуратный код и дизайн, проверенные в разных браузерах
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🔧</div>
+                        <h3 class="feature-title">Поддержка</h3>
+                        <p class="feature-description">
+                            Отвечаем на вопросы и вносим правки в течение рабочего дня
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#home" class="logo">
+                        <img src="images/my-logo.png" alt="Логотип Aurora Studio" class="logo-img" width="40" height="40">
+                        <span class="logo-text">Aurora Studio</span>
+                    </a>
+                    <p class="footer-text">Цифровые продукты для бизнеса: от идеи до запуска.</p>
+                </div>
+
+                <div class="footer-contacts">
+                    <h2 class="footer-title">Контакты</h2>
+                    <address class="footer-list">
+                        <a href="mailto:raniya24092008@gmail.com" class="footer-link">raniya24092008@gmail.com</a>
+                        <a href="tel:+79872482966" class="footer-link">+7 (987)-248-29-66</a>
+                        <span>Пн-Пт, 10:00-19:00</span>
+                    </address>
+                </div>
+
+                <div class="footer-social">
+                    <h2 class="footer-title">Мы в сети</h2>
+                    <ul class="footer-list">
+                        <li><a href="https://t.me/" class="footer-link" target="_blank" rel="noopener noreferrer">Telegram</a></li>
+                        <li><a href="https://vk.com/" class="footer-link" target="_blank" rel="noopener noreferrer">ВКонтакте</a></li>
+                        <li><a href="https://github.com/" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="footer-bottom">&copy; 2026 Aurora Studio. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

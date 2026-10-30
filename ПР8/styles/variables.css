@@ -1,0 +1,61 @@
+/* ===== Цвета из макета ===== */
+:root {
+    /* Основные цвета */
+    --primary-color: #0F172A;
+    --secondary-color: #2563EB;
+    --secondary-color-hover: #1D4ED8;
+    --accent-color: #F97316;
+    --accent-color-hover: #EA580C;
+
+    /* Текст */
+    --text-primary: #0F172A;
+    --text-secondary: #64748B;
+    --text-light: #FFFFFF;
+
+    /* Фоны */
+    --bg-light: #FFFFFF;
+    --bg-dark: #0F172A;
+    --bg-gray: #F1F5F9;
+
+    /* Градиенты */
+    --gradient-primary: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%);
+
+    /* Тени */
+    --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.1);
+    --shadow-md: 0 4px 8px rgba(15, 23, 42, 0.15);
+    --shadow-lg: 0 8px 16px rgba(15, 23, 42, 0.2);
+}
+
+/* ===== Типографика из макета ===== */
+:root {
+    --font-family-primary: 'Manrope', 'Segoe UI', Arial, sans-serif;   /* заголовки */
+    --font-family-secondary: 'Inter', 'Segoe UI', Arial, sans-serif;   /* основной текст */
+
+    --font-size-xs: 0.75rem;     /* 12px */
+    --font-size-sm: 0.875rem;    /* 14px */
+    --font-size-base: 1rem;      /* 16px */
+    --font-size-lg: 1.125rem;    /* 18px */
+    --font-size-xl: 1.25rem;     /* 20px */
+    --font-size-2xl: 1.5rem;     /* 24px */
+    --font-size-3xl: 1.875rem;   /* 30px */
+    --font-size-4xl: 2.25rem;    /* 36px */
+    --font-size-5xl: 3rem;       /* 48px */
+
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+}
+
+/* ===== Размеры и отступы из макета ===== */
+:root {
+    --container-width: 1200px;
+    --container-padding: 1rem;
+    --header-height: 80px;
+    --section-padding: 5rem;     /* вертикальные отступы секций, 80px */
+
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    --transition: 0.3s ease;
+}
