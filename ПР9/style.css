@@ -1,0 +1,69 @@
+/* Дополнительное оформление: подключается после встроенных стилей из index.html */
+
+body {
+    color: #1f2933;
+    line-height: 1.5;
+}
+
+h1 {
+    margin-bottom: 0.25rem;
+    font-size: 1.8rem;
+}
+
+/* Итоговая плашка с результатом */
+.summary {
+    margin: 16px 0 8px;
+    padding: 14px 16px;
+    border: 1px solid;
+    border-radius: 8px;
+}
+
+.summary-success {
+    background: #e9f7ef;
+    border-color: #28a745;
+    color: #17612b;
+}
+
+.summary-error {
+    background: #fdecea;
+    border-color: #dc3545;
+    color: #8a1c26;
+}
+
+.progress {
+    height: 8px;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.progress-bar {
+    height: 100%;
+    background: #28a745;
+    transition: width 0.6s ease;
+}
+
+.summary-error .progress-bar {
+    background: #dc3545;
+}
+
+/* Заголовки групп тестов */
+.test-section {
+    margin: 28px 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #e1e4e8;
+    font-size: 1.2rem;
+    color: #007acc;
+}
+
+/* Карточки тестов */
+.test-result {
+    border-radius: 0 6px 6px 0;
+    font-size: 0.95rem;
+}
+
+.test-result strong {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9rem;
+}
