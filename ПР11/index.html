@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM манипуляции</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header id="main-header">
+            <h1>Практическая работа: DOM манипуляции</h1>
+        </header>
+
+        <!-- Область для задач -->
+        <section id="tasks-section">
+            <div class="task-area" id="task1">
+                <h3>Задача 1: Создание элементов</h3>
+                <div class="target" id="target1"></div>
+            </div>
+
+            <div class="task-area" id="task2">
+                <h3>Задача 2: Навигация по DOM</h3>
+                <div class="family-tree">
+                    <div class="parent" id="parent-element">
+                        Родительский элемент
+                        <div class="child">Дочерний элемент 1</div>
+                        <div class="child">Дочерний элемент 2</div>
+                        <div class="child special">Особый дочерний элемент</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-area" id="task3">
+                <h3>Задача 3: Работа с классами</h3>
+                <div class="style-demo" id="style-target">
+                    Этот элемент будет стилизоваться
+                </div>
+                <button id="toggle-style">Переключить стиль</button>
+            </div>
+
+            <div class="task-area" id="task4">
+                <h3>Задача 4: Обработка событий</h3>
+                <div class="event-area">
+                    <button id="click-btn">Нажми меня</button>
+                    <div id="click-counter">Кликов: 0</div>
+                    <input type="text" id="text-input" placeholder="Введите текст">
+                    <div id="input-display"></div>
+                </div>
+            </div>
+
+            <div class="task-area" id="task5">
+                <h3>Задача 5: Динамические списки</h3>
+                <div class="list-controls">
+                    <input type="text" id="item-input" placeholder="Новый элемент">
+                    <button id="add-item">Добавить</button>
+                    <button id="clear-list">Очистить</button>
+                </div>
+                <ul id="dynamic-list"></ul>
+            </div>
+
+            <div class="task-area" id="task6">
+                <h3>Задача 6: Работа с формами</h3>
+                <form id="user-form">
+                    <div>
+                        <label for="user-name">Имя:</label>
+                        <input type="text" id="user-name" required>
+                    </div>
+                    <div>
+                        <label for="user-email">Email:</label>
+                        <input type="email" id="user-email" required>
+                    </div>
+                    <div>
+                        <label for="user-age">Возраст:</label>
+                        <input type="number" id="user-age" min="1" max="120" required>
+                    </div>
+                    <button type="submit">Отправить</button>
+                </form>
+                <div id="form-output"></div>
+            </div>
+        </section>
+
+        <footer id="main-footer">
+            <p>Проверьте консоль для тестирования</p>
+        </footer>
+    </div>
+
+    <script src="dom-tasks.js"></script>
+    <script src="dom-tests.js"></script>
+</body>
+</html>
