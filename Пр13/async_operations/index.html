@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Асинхронные операции JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <div class="container">
+        <header id="main-header">
+            <h1>Практическая работа: Асинхронные операции</h1>
+            <p>Реализуйте функции в файле async-tasks.js</p>
+        </header>
+
+        <section id="tasks-section">
+            <!-- Задача 1: Промисы -->
+            <div class="task-area" id="task1">
+                <h3>Задача 1: Основы промисов</h3>
+                <div class="promise-demo">
+                    <button id="basic-promise">Запустить базовый промис</button>
+                    <button id="promise-chain">Цепочка промисов</button>
+                    <button id="promise-error">Промис с ошибкой</button>
+                    <div id="promise-output" class="output">Результат промисов: </div>
+                </div>
+            </div>
+
+            <!-- Задача 2: Async/Await -->
+            <div class="task-area" id="task2">
+                <h3>Задача 2: Async/Await</h3>
+                <div class="async-demo">
+                    <button id="basic-async">Базовый async/await</button>
+                    <button id="async-error">Обработка ошибок async</button>
+                    <button id="async-parallel">Параллельное выполнение</button>
+                    <div id="async-output" class="output">Результат async/await: </div>
+                </div>
+            </div>
+
+            <!-- Задача 3: Работа с API -->
+            <div class="task-area" id="task3">
+                <h3>Задача 3: Работа с внешними API</h3>
+                <div class="api-demo">
+                    <button id="fetch-users">Загрузить пользователей</button>
+                    <button id="fetch-post">Создать пост</button>
+                    <button id="fetch-error">Тест ошибки API</button>
+                    <div id="api-output" class="output">Данные API: </div>
+                    <div id="api-data" class="data-container"></div>
+                </div>
+            </div>
+
+            <!-- Задача 4: Таймеры и интервалы -->
+            <div class="task-area" id="task4">
+                <h3>Задача 4: Асинхронные таймеры</h3>
+                <div class="timer-demo">
+                    <button id="start-interval">Запустить интервал</button>
+                    <button id="stop-interval">Остановить интервал</button>
+                    <button id="delay-promise">Задержка с промисом</button>
+                    <div id="timer-output" class="output">Таймер: 0</div>
+                    <div id="interval-output" class="output">Интервал: 0</div>
+                </div>
+            </div>
+
+            <!-- Задача 5: Обработка ошибок -->
+            <div class="task-area" id="task5">
+                <h3>Задача 5: Обработка ошибок</h3>
+                <div class="error-demo">
+                    <button id="try-catch">Try/Catch с async</button>
+                    <button id="multiple-errors">Множественные ошибки</button>
+                    <button id="retry-pattern">Повторные попытки</button>
+                    <div id="error-output" class="output">Статус ошибок: </div>
+                </div>
+            </div>
+
+            <!-- Задача 6: Параллельное выполнение -->
+            <div class="task-area" id="task6">
+                <h3>Задача 6: Параллельные операции</h3>
+                <div class="parallel-demo">
+                    <button id="promise-all">Promise.all</button>
+                    <button id="promise-race">Promise.race</button>
+                    <button id="promise-allSettled">Promise.allSettled</button>
+                    <div id="parallel-output" class="output">Параллельные операции: </div>
+                </div>
+            </div>
+
+            <!-- Задача 7: Реальные сценарии -->
+            <div class="task-area" id="task7">
+                <h3>Задача 7: Реальные сценарии</h3>
+                <div class="real-scenarios">
+                    <button id="sequential-requests">Последовательные запросы</button>
+                    <button id="upload-simulation">Симуляция загрузки</button>
+                    <button id="cache-requests">Кэширование запросов</button>
+                    <div id="scenario-output" class="output">Реальные сценарии: </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="main-footer">
+            <p>Проверьте консоль для тестирования.</p>
+        </footer>
+
+        <script src="async-tasks.js"></script>
+        <script src="async-tests.js"></script>
+    </div>
+</body>
+</html>
