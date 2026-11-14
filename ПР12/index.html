@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>Практическая работа №12 — JavaScript: обработка событий</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Практическая работа №12</h1>
+    <p class="page-subtitle">JavaScript: обработка событий, делегирование, кастомные события, таймеры</p>
+  </header>
+
+  <main class="page-main">
+
+    <!-- ЗАДАНИЕ 1. Базовые обработчики -->
+    <section class="card">
+      <h2>Задание 1. Базовые обработчики событий</h2>
+      <p class="card-hint">Кнопка, блок с реакцией на мышь и вывод информации о событии.</p>
+
+      <div class="row">
+        <button id="basic-btn" class="btn" type="button">Нажми меня</button>
+      </div>
+      <div id="basic-output" class="output">Событие ещё не произошло.</div>
+
+      <div id="color-box" class="color-box">Наведи курсор мыши на этот блок</div>
+      <div id="mouse-output" class="output">Координаты курсора появятся здесь.</div>
+    </section>
+
+    <!-- ЗАДАНИЕ 2. Клавиатура -->
+    <section class="card">
+      <h2>Задание 2. События клавиатуры</h2>
+      <p class="card-hint">
+        Кликните по полю и нажмите клавишу. Комбинации <kbd>Ctrl</kbd> + <kbd>S</kbd>,
+        <kbd>Alt</kbd> + <kbd>C</kbd>, <kbd>Shift</kbd> + <kbd>A</kbd> перехватываются.
+      </p>
+      <input id="key-input" class="key-input" type="text" autocomplete="off"
+             placeholder="Поставьте курсор сюда и нажмите клавишу…">
+      <div id="key-output" class="output">Информация о нажатии появится здесь.</div>
+    </section>
+
+    <!-- ЗАДАНИЕ 3. Делегирование -->
+    <section class="card">
+      <h2>Задание 3. Делегирование событий</h2>
+      <p class="card-hint">
+        Клик по элементу выделяет его, клик по крестику — удаляет. Обработчик один — на всём списке.
+      </p>
+
+      <div class="row">
+        <button id="add-item-btn" class="btn" type="button">Добавить элемент</button>
+      </div>
+
+      <ul id="item-list" class="item-list">
+        <li class="item" data-id="1">
+          <span class="item-title">Элемент 1</span>
+          <button class="delete" type="button" aria-label="Удалить элемент">×</button>
+        </li>
+        <li class="item" data-id="2">
+          <span class="item-title">Элемент 2</span>
+          <button class="delete" type="button" aria-label="Удалить элемент">×</button>
+        </li>
+        <li class="item" data-id="3">
+          <span class="item-title">Элемент 3</span>
+          <button class="delete" type="button" aria-label="Удалить элемент">×</button>
+        </li>
+      </ul>
+
+      <div id="delegation-output" class="output">Элементов в списке: 3. Выбрано: 0.</div>
+    </section>
+
+    <!-- ЗАДАНИЕ 4. Предотвращение поведения -->
+    <section class="card">
+      <h2>Задание 4. Предотвращение стандартного поведения</h2>
+      <p class="card-hint">
+        Ссылка не выполнит переход, форма не перезагрузит страницу, а введённые данные
+        будут показаны ниже.
+      </p>
+
+      <a id="prevent-link" class="link"
+         href="https://developer.mozilla.org/ru/docs/Web/API/Event/preventDefault"
+         target="_blank" rel="noopener">
+        Ссылка на MDN — переход по ней заблокирован
+      </a>
+
+      <form id="prevent-form" class="form" novalidate>
+        <label class="form-label" for="form-input">Данные формы</label>
+        <input id="form-input" class="key-input" type="text" name="userText"
+               autocomplete="off" placeholder="Введите текст (поле не должно быть пустым)">
+        <button class="btn" type="submit">Отправить</button>
+      </form>
+
+      <div id="prevention-output" class="output">Сообщение о предотвращении появится здесь.</div>
+    </section>
+
+    <!-- ЗАДАНИЕ 5. Кастомные события -->
+    <section class="card">
+      <h2>Задание 5. Кастомные события</h2>
+      <p class="card-hint">
+        Первая кнопка отправляет на <code>document</code> событие <code>customAction</code>,
+        вторая проверяет три независимых обработчика одного события.
+      </p>
+
+      <div class="row">
+        <button id="trigger-custom" class="btn" type="button">Запустить customAction</button>
+        <button id="multiple-listeners" class="btn btn-secondary" type="button">Проверить 3 слушателя</button>
+      </div>
+
+      <div id="custom-output" class="output">Данные кастомного события появятся здесь.</div>
+    </section>
+
+    <!-- ЗАДАНИЕ 6. Загрузка и ошибки -->
+    <section class="card">
+      <h2>Задание 6. События загрузки и ошибок</h2>
+      <p class="card-hint">
+        Загрузка картинки с <code>picsum.photos</code> и попытка загрузить несуществующий ресурс.
+        Для <code>&lt;img&gt;</code> браузер не генерирует <code>loadstart</code>/<code>loadend</code>
+        (они есть у XHR, fetch и медиаэлементов), поэтому здесь они эмулируются вручную.
+      </p>
+
+      <div class="row">
+        <button id="load-image" class="btn" type="button">Загрузить изображение</button>
+        <button id="load-error" class="btn btn-danger" type="button">Симулировать ошибку</button>
+      </div>
+
+      <div id="loading-output" class="output output-pre" data-state="idle">Статус загрузки появится здесь.</div>
+      <div id="image-container" class="image-container"></div>
+    </section>
+
+    <!-- ЗАДАНИЕ 7. Таймеры и асинхронность -->
+    <section class="card">
+      <h2>Задание 7. Таймеры, debounce и throttle</h2>
+      <p class="card-hint">
+        Секундомер, а также демонстрация разницы между обычной, debounce- и throttle-функцией.
+      </p>
+
+      <div class="timer">
+        Прошло: <strong><span id="timer-output">0</span></strong> с
+      </div>
+
+      <div class="row">
+        <button id="start-timer" class="btn" type="button">Старт</button>
+        <button id="stop-timer" class="btn btn-danger" type="button">Стоп и сброс</button>
+        <button id="debounce-btn" class="btn btn-secondary" type="button">Тест debounce</button>
+        <button id="throttle-btn" class="btn btn-secondary" type="button">Тест throttle</button>
+      </div>
+
+      <pre id="async-output" class="output output-pre">Журнал асинхронных вызовов.</pre>
+    </section>
+
+    <!-- ТЕСТЫ -->
+    <section class="card card-tests">
+      <h2>Автоматические тесты</h2>
+      <p class="card-hint">
+        Тесты проверяют обработчики, делегирование, кастомные события, debounce/throttle
+        и краевые случаи. Результаты дублируются в консоль браузера.
+      </p>
+      <div class="row">
+        <button id="run-tests" class="btn" type="button">Запустить тесты</button>
+      </div>
+      <div id="test-results" class="test-results"></div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>Практическая работа №12 · JavaScript: обработка событий</p>
+  </footer>
+
+  <script src="events-tasks.js" defer></script>
+  <script src="events-tests.js" defer></script>
+</body>
+</html>
